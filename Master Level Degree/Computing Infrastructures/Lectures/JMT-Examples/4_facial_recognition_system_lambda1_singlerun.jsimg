@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="4_facial_recognition_system_lambda1_singlerun.jsimg" timestamp="Thu Jun 04 12:24:43 CEST 2020" xsi:noNamespaceSchemaLocation="Archive.xsd">
+<sim disableStatisticStop="false" logDecimalSeparator="." logDelimiter="," logPath="C:\Users\Giuseppe Serazzi\JMT" logReplaceMode="0" maxEvents="-1" maxSamples="1000000" name="4_facial_recognition_system_lambda1_singlerun.jsimg" polling="1.0" seed="23000" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+<userClass name="Edge" priority="0" referenceSource="Source 1" type="open"/>
+<userClass name="Cloud" priority="0" referenceSource="ClassSwitch" type="open"/>
+<node name="Source 1">
+<section className="RandomSource">
+<parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+<subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+<subParameter classPath="java.lang.Double" name="lambda">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<value>null</value>
+</subParameter>
+</parameter>
+</section>
+<section className="ServiceTunnel"/>
+<section className="Router">
+<parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Edge node</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Edge node</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+</node>
+<node name="Edge node">
+<section className="Queue">
+<parameter classPath="java.lang.Integer" name="size">
+<value>-1</value>
+</parameter>
+<parameter array="true" classPath="java.lang.String" name="dropStrategies">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+</parameter>
+<parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+<parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+</parameter>
+</section>
+<section className="Server">
+<parameter classPath="java.lang.Integer" name="maxJobs">
+<value>1</value>
+</parameter>
+<parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.Integer" name="numberOfVisits">
+<value>1</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.Integer" name="numberOfVisits">
+<value>1</value>
+</subParameter>
+</parameter>
+<parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+<subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+<subParameter classPath="java.lang.Double" name="lambda">
+<value>2.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+<subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+<subParameter classPath="java.lang.Double" name="lambda">
+<value>10.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+<section className="Router">
+<parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Sink 1</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>0.6</value>
+</subParameter>
+</subParameter>
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>ClassSwitch 1</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>0.4</value>
+</subParameter>
+</subParameter>
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Sink 2</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>0.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Sink 1</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>0.0</value>
+</subParameter>
+</subParameter>
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>ClassSwitch 1</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>0.0</value>
+</subParameter>
+</subParameter>
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Sink 2</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+</node>
+<node name="Sink 1">
+<section className="JobSink"/>
+</node>
+<node name="ClassSwitch 1">
+<section className="Queue">
+<parameter classPath="java.lang.Integer" name="size">
+<value>-1</value>
+</parameter>
+<parameter array="true" classPath="java.lang.String" name="dropStrategies">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+</parameter>
+<parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+<parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+</parameter>
+</section>
+<section className="ClassSwitch">
+<parameter array="true" classPath="java.lang.Object" name="matrix">
+<refClass>Edge</refClass>
+<subParameter array="true" classPath="java.lang.Float" name="row">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.Float" name="cell">
+<value>0.0</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.Float" name="cell">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter array="true" classPath="java.lang.Float" name="row">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.Float" name="cell">
+<value>0.0</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.Float" name="cell">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+<section className="Router">
+<parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Cloud server</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Cloud server</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+</node>
+<node name="Cloud server">
+<section className="Queue">
+<parameter classPath="java.lang.Integer" name="size">
+<value>-1</value>
+</parameter>
+<parameter array="true" classPath="java.lang.String" name="dropStrategies">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.String" name="dropStrategy">
+<value>drop</value>
+</subParameter>
+</parameter>
+<parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+<parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+</parameter>
+</section>
+<section className="Server">
+<parameter classPath="java.lang.Integer" name="maxJobs">
+<value>1</value>
+</parameter>
+<parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+<refClass>Edge</refClass>
+<subParameter classPath="java.lang.Integer" name="numberOfVisits">
+<value>1</value>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="java.lang.Integer" name="numberOfVisits">
+<value>1</value>
+</subParameter>
+</parameter>
+<parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServiceStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+<subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+<subParameter classPath="java.lang.Double" name="lambda">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+<subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+<subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+<subParameter classPath="java.lang.Double" name="lambda">
+<value>1.25</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+<section className="Router">
+<parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+<refClass>Edge</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Edge node</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+<refClass>Cloud</refClass>
+<subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.EmpiricalStrategy" name="Probabilities">
+<subParameter array="true" classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntryArray">
+<subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
+<subParameter classPath="java.lang.String" name="stationName">
+<value>Edge node</value>
+</subParameter>
+<subParameter classPath="java.lang.Double" name="probability">
+<value>1.0</value>
+</subParameter>
+</subParameter>
+</subParameter>
+</subParameter>
+</parameter>
+</section>
+</node>
+<node name="Sink 2">
+<section className="JobSink"/>
+</node>
+<measure alpha="0.01" name="Edge_System Response Time" nodeType="" precision="0.03" referenceNode="" referenceUserClass="Edge" type="System Response Time" verbose="false"/>
+<measure alpha="0.01" name="Cloud_System Response Time" nodeType="" precision="0.03" referenceNode="" referenceUserClass="Cloud" type="System Response Time" verbose="false"/>
+<measure alpha="0.01" name="Sink 1_Edge_Response Time per Sink" nodeType="station" precision="0.03" referenceNode="Sink 1" referenceUserClass="Edge" type="Response Time per Sink" verbose="false"/>
+<measure alpha="0.01" name="Sink 2_Cloud_Response Time per Sink" nodeType="station" precision="0.03" referenceNode="Sink 2" referenceUserClass="Cloud" type="Response Time per Sink" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Edge_Utilization" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Edge" type="Utilization" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Cloud_Utilization" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Cloud" type="Utilization" verbose="false"/>
+<measure alpha="0.01" name="Cloud server_Cloud_Utilization" nodeType="station" precision="0.03" referenceNode="Cloud server" referenceUserClass="Cloud" type="Utilization" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Utilization" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="" type="Utilization" verbose="false"/>
+<measure alpha="0.01" name="Cloud server_Utilization" nodeType="station" precision="0.03" referenceNode="Cloud server" referenceUserClass="" type="Utilization" verbose="false"/>
+<measure alpha="0.01" name="Sink 1_Throughput per Sink" nodeType="station" precision="0.03" referenceNode="Sink 1" referenceUserClass="" type="Throughput per Sink" verbose="false"/>
+<measure alpha="0.01" name="Sink 2_Throughput per Sink" nodeType="station" precision="0.03" referenceNode="Sink 2" referenceUserClass="" type="Throughput per Sink" verbose="false"/>
+<measure alpha="0.01" name="System Response Time" nodeType="" precision="0.03" referenceNode="" referenceUserClass="" type="System Response Time" verbose="false"/>
+<measure alpha="0.01" name="Cloud server_Cloud_Response Time" nodeType="station" precision="0.03" referenceNode="Cloud server" referenceUserClass="Cloud" type="Response Time" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Edge_Response Time" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Edge" type="Response Time" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Cloud_Response Time" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Cloud" type="Response Time" verbose="false"/>
+<measure alpha="0.01" name="System Throughput" nodeType="" precision="0.03" referenceNode="" referenceUserClass="" type="System Throughput" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Cloud_Residence Time" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Cloud" type="Residence Time" verbose="false"/>
+<measure alpha="0.01" name="Edge node_Edge_Residence Time" nodeType="station" precision="0.03" referenceNode="Edge node" referenceUserClass="Edge" type="Residence Time" verbose="false"/>
+<connection source="Source 1" target="Edge node"/>
+<connection source="Edge node" target="Sink 1"/>
+<connection source="Edge node" target="ClassSwitch 1"/>
+<connection source="Edge node" target="Sink 2"/>
+<connection source="ClassSwitch 1" target="Cloud server"/>
+<connection source="Cloud server" target="Edge node"/>
+</sim>
+<jmodel xsi:noNamespaceSchemaLocation="JModelGUI.xsd">
+<userClass color="#FF0000FF" name="Edge"/>
+<userClass color="#FFFF0000" name="Cloud"/>
+<station name="Source 1">
+<position rotate="false" x="65.0" y="182.0"/>
+</station>
+<station name="Edge node">
+<position rotate="false" x="216.0" y="188.0"/>
+</station>
+<station name="Sink 1">
+<position rotate="false" x="511.0" y="110.0"/>
+</station>
+<station name="ClassSwitch 1">
+<position rotate="false" x="372.0" y="237.0"/>
+</station>
+<station name="Cloud server">
+<position rotate="false" x="529.0" y="243.0"/>
+</station>
+<station name="Sink 2">
+<position rotate="false" x="513.0" y="170.0"/>
+</station>
+</jmodel>
+<results elapsedTime="9545" logDecimalSeparator="." logDelimiter="," pollingInterval="1.0" xsi:noNamespaceSchemaLocation="Results.xsd">
+<measure alpha="0.99" analyzedSamples="194560" discardedSamples="12500" finalValue="1.0545193672807982" name="Edge_System Response Time" nodeType="" precision="0.03" referenceClass="Edge" referenceStation="" state="1" type="8">
+<sample lastIntervalAvgValue="1.0643909924001103" meanValue="1.0643909924001103" simulationTime="9605.525355142468"/>
+<sample lastIntervalAvgValue="1.0103775143677705" meanValue="1.0424381622421337" simulationTime="16192.566210806159"/>
+<sample lastIntervalAvgValue="1.071636548858154" meanValue="1.0489385754102516" simulationTime="20846.2303925618"/>
+<sample lastIntervalAvgValue="0.9541715517307009" meanValue="1.0349273564797494" simulationTime="24566.508595272146"/>
+<sample lastIntervalAvgValue="1.0058304383679315" meanValue="1.0277890834153982" simulationTime="32501.017275552185"/>
+<sample lastIntervalAvgValue="1.048132495239562" meanValue="1.0312918996940532" simulationTime="39293.70126245282"/>
+<sample lastIntervalAvgValue="1.0805484120231506" meanValue="1.050047631732397" simulationTime="59279.06471889294"/>
+<sample lastIntervalAvgValue="1.0531557563294738" lowerBound="1.0213305822982157" meanValue="1.062967570071126" simulationTime="157841.96129385437" upperBound="1.1046045578440364"/>
+<sample lastIntervalAvgValue="1.06037561465022" lowerBound="1.0151532478734346" meanValue="1.05054826583998" simulationTime="261555.14921345853" upperBound="1.0859432838065255"/>
+<sample lastIntervalAvgValue="1.0551305401786257" lowerBound="1.0362463741633874" meanValue="1.0545193672807982" simulationTime="344105.0136206035" upperBound="1.072792360398209"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="58880" discardedSamples="3645" finalValue="2.8757299582866374" name="Cloud_System Response Time" nodeType="" precision="0.03" referenceClass="Cloud" referenceStation="" state="1" type="8">
+<sample lastIntervalAvgValue="2.9785261081074794" meanValue="2.9785261081074794" simulationTime="9608.244448349174"/>
+<sample lastIntervalAvgValue="2.885312071255705" meanValue="2.940219360404922" simulationTime="16193.63124563712"/>
+<sample lastIntervalAvgValue="2.802767232218268" meanValue="2.9102812472766653" simulationTime="20836.920598818248"/>
+<sample lastIntervalAvgValue="2.6678643117417393" meanValue="2.873220750643791" simulationTime="24568.38822494378"/>
+<sample lastIntervalAvgValue="2.7911672244102137" meanValue="2.8534221265537454" simulationTime="32496.169114000637"/>
+<sample lastIntervalAvgValue="2.9168274133437118" meanValue="2.8646544934983735" simulationTime="39292.51291342054"/>
+<sample lastIntervalAvgValue="2.8751692762582683" lowerBound="2.684543769435483" meanValue="2.8184287303451514" simulationTime="59275.88785216638" upperBound="2.95231369125482"/>
+<sample lastIntervalAvgValue="2.8805765299111417" lowerBound="2.793702350741234" meanValue="2.8757299582866374" simulationTime="156732.8733684413" upperBound="2.9577575658320407"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="194560" discardedSamples="12500" finalValue="1.0545193672807982" name="Sink 1_Edge_Response Time per Sink" nodeType="station" precision="0.03" referenceClass="Edge" referenceStation="Sink 1" state="1" type="12">
+<sample lastIntervalAvgValue="1.0643909924001103" meanValue="1.0643909924001103" simulationTime="9605.525355142468"/>
+<sample lastIntervalAvgValue="1.0103775143677705" meanValue="1.0424381622421337" simulationTime="16192.566210806159"/>
+<sample lastIntervalAvgValue="1.071636548858154" meanValue="1.0489385754102516" simulationTime="20846.2303925618"/>
+<sample lastIntervalAvgValue="0.9541715517307009" meanValue="1.0349273564797494" simulationTime="24566.508595272146"/>
+<sample lastIntervalAvgValue="1.0058304383679315" meanValue="1.0277890834153982" simulationTime="32501.017275552185"/>
+<sample lastIntervalAvgValue="1.0479738422050036" meanValue="1.0312652903907358" simulationTime="39294.830628236276"/>
+<sample lastIntervalAvgValue="1.0806042029746292" meanValue="1.050047631732397" simulationTime="59279.06471889294"/>
+<sample lastIntervalAvgValue="1.0531557563294738" lowerBound="1.0213305822982157" meanValue="1.062967570071126" simulationTime="157841.96129385437" upperBound="1.1046045578440364"/>
+<sample lastIntervalAvgValue="1.06037561465022" lowerBound="1.0151532478734346" meanValue="1.05054826583998" simulationTime="261555.14921345853" upperBound="1.0859432838065255"/>
+<sample lastIntervalAvgValue="1.0551305401786257" lowerBound="1.0362463741633874" meanValue="1.0545193672807982" simulationTime="344105.0136206035" upperBound="1.072792360398209"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="58880" discardedSamples="3645" finalValue="2.8757299582866374" name="Sink 2_Cloud_Response Time per Sink" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Sink 2" state="1" type="12">
+<sample lastIntervalAvgValue="2.9785261081074794" meanValue="2.9785261081074794" simulationTime="9608.244448349174"/>
+<sample lastIntervalAvgValue="2.885312071255705" meanValue="2.940219360404922" simulationTime="16193.63124563712"/>
+<sample lastIntervalAvgValue="2.802767232218268" meanValue="2.9102812472766653" simulationTime="20836.920598818248"/>
+<sample lastIntervalAvgValue="2.6678643117417393" meanValue="2.873220750643791" simulationTime="24568.38822494378"/>
+<sample lastIntervalAvgValue="2.7911672244102137" meanValue="2.8534221265537454" simulationTime="32496.169114000637"/>
+<sample lastIntervalAvgValue="2.9168274133437118" meanValue="2.8646544934983735" simulationTime="39292.51291342054"/>
+<sample lastIntervalAvgValue="2.8751692762582683" lowerBound="2.684543769435483" meanValue="2.8184287303451514" simulationTime="59275.88785216638" upperBound="2.95231369125482"/>
+<sample lastIntervalAvgValue="2.8805765299111417" lowerBound="2.793702350741234" meanValue="2.8757299582866374" simulationTime="156732.8733684413" upperBound="2.9577575658320407"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="40960" discardedSamples="270" finalValue="0.4993180260573354" name="Edge node_Edge_Utilization" nodeType="station" precision="0.03" referenceClass="Edge" referenceStation="Edge node" state="1" type="4">
+<sample lastIntervalAvgValue="0.5042540335227242" lowerBound="0.47135836975748907" meanValue="0.5056767465206276" simulationTime="9606.269936633214" upperBound="0.539995123283766"/>
+<sample lastIntervalAvgValue="0.5041471853622351" lowerBound="0.4688983349320446" meanValue="0.5000080883486457" simulationTime="16193.418658034298" upperBound="0.5311178417652469"/>
+<sample lastIntervalAvgValue="0.5010147098782695" lowerBound="0.4688983349320446" meanValue="0.5000080883486457" simulationTime="20848.357492714913" upperBound="0.5311178417652469"/>
+<sample lastIntervalAvgValue="0.48442488767641595" lowerBound="0.4688983349320446" meanValue="0.5000080883486457" simulationTime="24570.18071556828" upperBound="0.5311178417652469"/>
+<sample lastIntervalAvgValue="0.48219776257269925" lowerBound="0.4867860081578858" meanValue="0.4993180260573354" simulationTime="26109.504850593883" upperBound="0.511850043956785"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="81920" discardedSamples="90" finalValue="0.03964577729751124" name="Edge node_Cloud_Utilization" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Edge node" state="1" type="4">
+<sample lastIntervalAvgValue="0.03947887528235059" lowerBound="0.031277677095002426" meanValue="0.03974337667338533" simulationTime="9608.244448349174" upperBound="0.048209076251768235"/>
+<sample lastIntervalAvgValue="0.03950585230725679" lowerBound="0.03591267745462051" meanValue="0.039101922249706135" simulationTime="16193.63124563712" upperBound="0.04229116704479176"/>
+<sample lastIntervalAvgValue="0.03840993972698383" lowerBound="0.03591267745462051" meanValue="0.039101922249706135" simulationTime="20848.388038456513" upperBound="0.04229116704479176"/>
+<sample lastIntervalAvgValue="0.0406140601558313" lowerBound="0.03591267745462051" meanValue="0.039101922249706135" simulationTime="24568.38822494378" upperBound="0.04229116704479176"/>
+<sample lastIntervalAvgValue="0.03945627324170706" lowerBound="0.03804052052562508" meanValue="0.0396222156762033" simulationTime="32496.169114000637" upperBound="0.041203910826781515"/>
+<sample lastIntervalAvgValue="0.03995842054340741" lowerBound="0.03804052052562508" meanValue="0.0396222156762033" simulationTime="39292.51291342054" upperBound="0.041203910826781515"/>
+<sample lastIntervalAvgValue="0.03992188795996658" lowerBound="0.03851281119509778" meanValue="0.0397629645544825" simulationTime="59275.88785216638" upperBound="0.04101311791386722"/>
+<sample lastIntervalAvgValue="0.03956906807817007" lowerBound="0.03880107716904578" meanValue="0.03964577729751124" simulationTime="108959.68385620456" upperBound="0.040490477425976695"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="51200" discardedSamples="335" finalValue="0.31920601534427256" name="Cloud server_Cloud_Utilization" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Cloud server" state="1" type="4">
+<sample lastIntervalAvgValue="0.3171364287757947" lowerBound="0.2503010170428749" meanValue="0.3103115697772" simulationTime="9608.224936635635" upperBound="0.3703221225115251"/>
+<sample lastIntervalAvgValue="0.3356530451374612" lowerBound="0.24891774916442144" meanValue="0.3217257914067257" simulationTime="16193.541181792809" upperBound="0.39453383364902994"/>
+<sample lastIntervalAvgValue="0.30891463575569383" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="20848.357492714913" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3191930880930297" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="24567.932023175614" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3090116171836817" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="32496.140119229345" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3247209504027707" lowerBound="0.2957283179803691" meanValue="0.31818689949957535" simulationTime="39291.89201089806" upperBound="0.3406454810187816"/>
+<sample lastIntervalAvgValue="0.3192555687053337" lowerBound="0.2957283179803691" meanValue="0.31818689949957535" simulationTime="59275.82724570562" upperBound="0.3406454810187816"/>
+<sample lastIntervalAvgValue="0.31922053288062446" lowerBound="0.3101673408600347" meanValue="0.31920601534427256" simulationTime="76259.60468848076" upperBound="0.3282446898285104"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="61440" discardedSamples="215" finalValue="0.536233550207505" name="Edge node_Utilization" nodeType="station" precision="0.03" referenceClass="" referenceStation="Edge node" state="1" type="4">
+<sample lastIntervalAvgValue="0.5436292836837155" lowerBound="0.5148941905839889" meanValue="0.5481237741545919" simulationTime="9608.244448349174" upperBound="0.5813533577251949"/>
+<sample lastIntervalAvgValue="0.543787922545628" lowerBound="0.5131512893984266" meanValue="0.5407304089133265" simulationTime="16193.63124563712" upperBound="0.5683095284282264"/>
+<sample lastIntervalAvgValue="0.5394442436795187" lowerBound="0.5131512893984266" meanValue="0.5407304089133265" simulationTime="20848.388038456513" upperBound="0.5683095284282264"/>
+<sample lastIntervalAvgValue="0.5250233630832726" lowerBound="0.5131512893984266" meanValue="0.5407304089133265" simulationTime="24570.18071556828" upperBound="0.5683095284282264"/>
+<sample lastIntervalAvgValue="0.5235681676311681" lowerBound="0.5208801524911089" meanValue="0.536233550207505" simulationTime="30105.103598274356" upperBound="0.5515869479239011"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="51200" discardedSamples="335" finalValue="0.31920601534427256" name="Cloud server_Utilization" nodeType="station" precision="0.03" referenceClass="" referenceStation="Cloud server" state="1" type="4">
+<sample lastIntervalAvgValue="0.3171364287757947" lowerBound="0.2503010170428749" meanValue="0.3103115697772" simulationTime="9608.224936635635" upperBound="0.3703221225115251"/>
+<sample lastIntervalAvgValue="0.3356530451374612" lowerBound="0.24891774916442144" meanValue="0.3217257914067257" simulationTime="16193.541181792809" upperBound="0.39453383364902994"/>
+<sample lastIntervalAvgValue="0.30891463575569383" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="20848.357492714913" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3191930880930297" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="24567.932023175614" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3090116171836817" lowerBound="0.2868436994404234" meanValue="0.3257717234518806" simulationTime="32496.140119229345" upperBound="0.3646997474633378"/>
+<sample lastIntervalAvgValue="0.3247209504027707" lowerBound="0.2957283179803691" meanValue="0.31818689949957535" simulationTime="39291.89201089806" upperBound="0.3406454810187816"/>
+<sample lastIntervalAvgValue="0.3192555687053337" lowerBound="0.2957283179803691" meanValue="0.31818689949957535" simulationTime="59275.82724570562" upperBound="0.3406454810187816"/>
+<sample lastIntervalAvgValue="0.31922053288062446" lowerBound="0.3101673408600347" meanValue="0.31920601534427256" simulationTime="76259.60468848076" upperBound="0.3282446898285104"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="46080" discardedSamples="525" finalValue="0.5992761690210027" name="Sink 1_Throughput per Sink" nodeType="station" precision="0.03" referenceClass="" referenceStation="Sink 1" state="1" type="13">
+<sample lastIntervalAvgValue="0.6032986001018211" lowerBound="0.5487608264873457" meanValue="0.6010642021408853" simulationTime="9605.525355142468" upperBound="0.6643882326366907"/>
+<sample lastIntervalAvgValue="0.6023949276993207" lowerBound="0.5288598118735324" meanValue="0.606172456146805" simulationTime="16192.566210806159" upperBound="0.7099596102538637"/>
+<sample lastIntervalAvgValue="0.6008168812355474" lowerBound="0.5810917196164189" meanValue="0.603285958463835" simulationTime="20846.2303925618" upperBound="0.6272428971084963"/>
+<sample lastIntervalAvgValue="0.5857088855377875" lowerBound="0.5810917196164189" meanValue="0.603285958463835" simulationTime="24566.508595272146" upperBound="0.6272428971084963"/>
+<sample lastIntervalAvgValue="0.6038181055756192" lowerBound="0.5810917196164189" meanValue="0.603285958463835" simulationTime="32501.017275552185" upperBound="0.6272428971084963"/>
+<sample lastIntervalAvgValue="0.597996316011958" lowerBound="0.5773612134625576" meanValue="0.5991557188938539" simulationTime="39293.70126245282" upperBound="0.6226601916796665"/>
+<sample lastIntervalAvgValue="0.6072443979541073" lowerBound="0.5773612134625576" meanValue="0.5991557188938539" simulationTime="59279.06471889294" upperBound="0.6226601916796665"/>
+<sample lastIntervalAvgValue="0.5909658980321691" lowerBound="0.5890952791482884" meanValue="0.5992761690210027" simulationTime="77686.218221696" upperBound="0.6098151447196023"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="20480" discardedSamples="0" finalValue="0.40256786984528764" name="Sink 2_Throughput per Sink" nodeType="station" precision="0.03" referenceClass="" referenceStation="Sink 2" state="1" type="13">
+<sample lastIntervalAvgValue="0.4006975489327274" lowerBound="0.35147282999686275" meanValue="0.4004410837457498" simulationTime="9608.244448349174" upperBound="0.4652629150170459"/>
+<sample lastIntervalAvgValue="0.40787277690449" lowerBound="0.3477144373057882" meanValue="0.40115126605798346" simulationTime="16193.63124563712" upperBound="0.47399490378301573"/>
+<sample lastIntervalAvgValue="0.39196351154663966" lowerBound="0.3477144373057882" meanValue="0.40115126605798346" simulationTime="20836.920598818248" upperBound="0.47399490378301573"/>
+<sample lastIntervalAvgValue="0.4041305328342859" lowerBound="0.3477144373057882" meanValue="0.40115126605798346" simulationTime="24568.38822494378" upperBound="0.47399490378301573"/>
+<sample lastIntervalAvgValue="0.3956971117012291" lowerBound="0.3869677833975812" meanValue="0.4017919060280176" simulationTime="32496.169114000637" upperBound="0.4177970489736152"/>
+<sample lastIntervalAvgValue="0.41183908327870433" lowerBound="0.3869677833975812" meanValue="0.4017919060280176" simulationTime="39292.51291342054" upperBound="0.4177970489736152"/>
+<sample lastIntervalAvgValue="0.40048835603196775" lowerBound="0.3908932060055597" meanValue="0.40256786984528764" simulationTime="50978.245917918764" upperBound="0.41496136866071165"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="92160" discardedSamples="9260" finalValue="1.796624106390487" name="System Response Time" nodeType="" precision="0.03" referenceClass="" referenceStation="" state="1" type="8">
+<sample lastIntervalAvgValue="1.8284573682915861" meanValue="1.8284573682915861" simulationTime="9608.244448349174"/>
+<sample lastIntervalAvgValue="1.767226660715981" meanValue="1.803460182684616" simulationTime="16193.63124563712"/>
+<sample lastIntervalAvgValue="1.7541880747930343" meanValue="1.7925856883012734" simulationTime="20846.2303925618"/>
+<sample lastIntervalAvgValue="1.6550797920606837" meanValue="1.7719782482785438" simulationTime="24568.38822494378"/>
+<sample lastIntervalAvgValue="1.7122649820928018" lowerBound="1.635490959371002" meanValue="1.7293301374340355" simulationTime="32499.73299893244" upperBound="1.823169315497069"/>
+<sample lastIntervalAvgValue="1.8104655823022604" lowerBound="1.635490959371002" meanValue="1.7293301374340355" simulationTime="39293.70126245282" upperBound="1.823169315497069"/>
+<sample lastIntervalAvgValue="1.794138909039457" lowerBound="1.7021979806529595" meanValue="1.7685077941617242" simulationTime="59279.06471889294" upperBound="1.834817607670489"/>
+<sample lastIntervalAvgValue="1.804419032952831" lowerBound="1.7433891230198262" meanValue="1.796624106390487" simulationTime="101111.32085224916" upperBound="1.849859089761148"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="102400" discardedSamples="0" finalValue="1.174675784783802" name="Cloud server_Cloud_Response Time" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Cloud server" state="1" type="2">
+<sample lastIntervalAvgValue="1.152015577394982" lowerBound="0.942309889052358" meanValue="1.1236025461354635" simulationTime="9608.224936635635" upperBound="1.304895203218569"/>
+<sample lastIntervalAvgValue="1.2340902132087233" lowerBound="0.9684684112706978" meanValue="1.2095523945965727" simulationTime="16193.541181792809" upperBound="1.4506363779224476"/>
+<sample lastIntervalAvgValue="1.1420169106832538" lowerBound="0.9684684112706978" meanValue="1.2095523945965727" simulationTime="20846.66823822233" upperBound="1.4506363779224476"/>
+<sample lastIntervalAvgValue="1.1361390702421152" lowerBound="0.9684684112706978" meanValue="1.2095523945965727" simulationTime="24567.932023175614" upperBound="1.4506363779224476"/>
+<sample lastIntervalAvgValue="1.152088942107499" lowerBound="1.101370280029245" meanValue="1.1698704293826192" simulationTime="32496.140119229345" upperBound="1.2383705787359933"/>
+<sample lastIntervalAvgValue="1.1666499766935505" lowerBound="1.101370280029245" meanValue="1.1698704293826192" simulationTime="39291.89201089806" upperBound="1.2383705787359933"/>
+<sample lastIntervalAvgValue="1.1645830068379757" lowerBound="1.101370280029245" meanValue="1.1698704293826192" simulationTime="59275.82724570562" upperBound="1.2383705787359933"/>
+<sample lastIntervalAvgValue="1.1618733278641984" lowerBound="1.1256569924033886" meanValue="1.1619840118812865" simulationTime="157838.80694999214" upperBound="1.1983110313591845"/>
+<sample lastIntervalAvgValue="1.1830675304734168" lowerBound="1.1518217902569263" meanValue="1.174675784783802" simulationTime="257338.21998783524" upperBound="1.1975297793106778"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="174080" discardedSamples="9260" finalValue="1.0556861646346778" name="Edge node_Edge_Response Time" nodeType="station" precision="0.03" referenceClass="Edge" referenceStation="Edge node" state="1" type="2">
+<sample lastIntervalAvgValue="1.0872154482818814" meanValue="1.0872154482818814" simulationTime="9606.269936633214"/>
+<sample lastIntervalAvgValue="1.0118238033082056" meanValue="1.056434380962876" simulationTime="16193.418658034298"/>
+<sample lastIntervalAvgValue="1.0573317629332497" meanValue="1.056632493112181" simulationTime="20848.357492714913"/>
+<sample lastIntervalAvgValue="0.9442631550546448" meanValue="1.0398019842009907" simulationTime="24570.18071556828"/>
+<sample lastIntervalAvgValue="1.0137885665622641" lowerBound="0.9598223877738221" meanValue="1.0080134610941063" simulationTime="32501.017275552185" upperBound="1.0562045344143904"/>
+<sample lastIntervalAvgValue="1.0592239718545162" lowerBound="0.9598223877738221" meanValue="1.0080134610941063" simulationTime="39294.830628236276" upperBound="1.0562045344143904"/>
+<sample lastIntervalAvgValue="1.0731763022097474" lowerBound="1.000296605855551" meanValue="1.0399326161608018" simulationTime="59279.06471889294" upperBound="1.0795686264660527"/>
+<sample lastIntervalAvgValue="1.0510188615981524" lowerBound="1.028592533578015" meanValue="1.0613222491011114" simulationTime="157845.7407482836" upperBound="1.0940519646242077"/>
+<sample lastIntervalAvgValue="1.0706846849086444" lowerBound="1.0338279282031255" meanValue="1.0556861646346778" simulationTime="183067.8264459321" upperBound="1.07754440106623"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="133120" discardedSamples="3620" finalValue="0.6597794357758723" name="Edge node_Cloud_Response Time" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Edge node" state="1" type="2">
+<sample lastIntervalAvgValue="0.704939830005967" meanValue="0.704939830005967" simulationTime="9608.244448349174"/>
+<sample lastIntervalAvgValue="0.6366639448293909" meanValue="0.6768815332519456" simulationTime="16193.63124563712"/>
+<sample lastIntervalAvgValue="0.6286544168962112" meanValue="0.6663727886206434" simulationTime="20848.388038456513"/>
+<sample lastIntervalAvgValue="0.5991235329836996" meanValue="0.6560985967872214" simulationTime="24568.38822494378"/>
+<sample lastIntervalAvgValue="0.6129186205950785" meanValue="0.6456797378290834" simulationTime="32496.169114000637"/>
+<sample lastIntervalAvgValue="0.6746228907456376" meanValue="0.6508070723236047" simulationTime="39292.51291342054"/>
+<sample lastIntervalAvgValue="0.6486616930602319" lowerBound="0.6046964859941791" meanValue="0.6385930631339307" simulationTime="59275.88785216638" upperBound="0.6724896402736823"/>
+<sample lastIntervalAvgValue="0.6680260741205256" lowerBound="0.62156290221892" meanValue="0.6510640156268216" simulationTime="157839.33089063203" upperBound="0.6805651290347232"/>
+<sample lastIntervalAvgValue="0.6564776211049779" lowerBound="0.6376641722964361" meanValue="0.6614489389009968" simulationTime="261553.80210241379" upperBound="0.6852337055055574"/>
+<sample lastIntervalAvgValue="0.6624052303407141" lowerBound="0.6454642175168513" meanValue="0.6597794357758723" simulationTime="342780.63863800146" upperBound="0.6740946540348932"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="30720" discardedSamples="145" finalValue="1.0006349888258" name="System Throughput" nodeType="" precision="0.03" referenceClass="" referenceStation="" state="1" type="9">
+<sample lastIntervalAvgValue="1.00382541804056" lowerBound="0.9091501506377354" meanValue="1.0120380770360238" simulationTime="9608.244448349174" upperBound="1.1411852651987473"/>
+<sample lastIntervalAvgValue="1.010430571290518" lowerBound="0.9682358175609053" meanValue="1.0031575838049105" simulationTime="16192.566210806159" upperBound="1.0406926820905367"/>
+<sample lastIntervalAvgValue="0.9921214380059092" lowerBound="0.9682358175609053" meanValue="1.0031575838049105" simulationTime="20846.2303925618" upperBound="1.0406926820905367"/>
+<sample lastIntervalAvgValue="0.9905544487995336" lowerBound="0.9682358175609053" meanValue="1.0031575838049105" simulationTime="24568.38822494378" upperBound="1.0406926820905367"/>
+<sample lastIntervalAvgValue="0.9984592923943136" lowerBound="0.9722131852964626" meanValue="1.0006349888258" simulationTime="30842.054109687942" upperBound="1.030768609037226"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="133120" discardedSamples="3620" finalValue="0.2630311501975469" name="Edge node_Cloud_Residence Time" nodeType="station" precision="0.03" referenceClass="Cloud" referenceStation="Edge node" state="1" type="3">
+<sample lastIntervalAvgValue="0.2814204008215443" meanValue="0.2814204008215443" simulationTime="9608.244448349174"/>
+<sample lastIntervalAvgValue="0.25536091590070736" meanValue="0.2714918752526671" simulationTime="16193.63124563712"/>
+<sample lastIntervalAvgValue="0.25122124856933237" meanValue="0.2662941665095216" simulationTime="20848.388038456513"/>
+<sample lastIntervalAvgValue="0.24022415874766118" meanValue="0.26306884105154876" simulationTime="24568.38822494378"/>
+<sample lastIntervalAvgValue="0.24498278311423174" meanValue="0.2580773594710829" simulationTime="32496.169114000637"/>
+<sample lastIntervalAvgValue="0.27060960353857866" meanValue="0.26105643054438943" simulationTime="39292.51291342054"/>
+<sample lastIntervalAvgValue="0.25943199081980656" lowerBound="0.24184812342332074" meanValue="0.25540504621285" simulationTime="59275.88785216638" upperBound="0.2689619690023793"/>
+<sample lastIntervalAvgValue="0.26592851048708943" lowerBound="0.24743240296229493" meanValue="0.259176236699028" simulationTime="157839.33089063203" upperBound="0.2709200704357611"/>
+<sample lastIntervalAvgValue="0.2609490464160011" lowerBound="0.25347072366964174" meanValue="0.2629251391213678" simulationTime="261553.80210241379" upperBound="0.2723795545730938"/>
+<sample lastIntervalAvgValue="0.26407796330981165" lowerBound="0.25732416977374617" meanValue="0.2630311501975469" simulationTime="342780.63863800146" upperBound="0.26873813062134766"/>
+</measure>
+<measure alpha="0.99" analyzedSamples="174080" discardedSamples="9260" finalValue="1.0557149556567529" name="Edge node_Edge_Residence Time" nodeType="station" precision="0.03" referenceClass="Edge" referenceStation="Edge node" state="1" type="3">
+<sample lastIntervalAvgValue="1.087328183189418" meanValue="1.087328183189418" simulationTime="9606.269936633214"/>
+<sample lastIntervalAvgValue="1.0119479687031387" meanValue="1.0565640207200198" simulationTime="16193.418658034298"/>
+<sample lastIntervalAvgValue="1.0575845317027772" meanValue="1.056885094712256" simulationTime="20848.357492714913"/>
+<sample lastIntervalAvgValue="0.9444166812972355" meanValue="1.0399710439496617" simulationTime="24570.18071556828"/>
+<sample lastIntervalAvgValue="1.0139132293021653" lowerBound="0.959940414443904" meanValue="1.008137413685467" simulationTime="32501.017275552185" upperBound="1.05633441292703"/>
+<sample lastIntervalAvgValue="1.0592508618540555" lowerBound="0.9598467543140919" meanValue="1.0080390510375221" simulationTime="39294.830628236276" upperBound="1.0562313477609522"/>
+<sample lastIntervalAvgValue="1.073194327577203" lowerBound="1.00031340711537" meanValue="1.0399500831580666" simulationTime="59279.06471889294" upperBound="1.079586759200763"/>
+<sample lastIntervalAvgValue="1.0510255089462914" lowerBound="1.0285990390870154" meanValue="1.0613289616147827" simulationTime="157845.7407482836" upperBound="1.09405888414255"/>
+<sample lastIntervalAvgValue="1.0707138849753228" lowerBound="1.0338561231001508" meanValue="1.0557149556567529" simulationTime="183067.8264459321" upperBound="1.0775737882133551"/>
+</measure>
+</results>
+</archive>
