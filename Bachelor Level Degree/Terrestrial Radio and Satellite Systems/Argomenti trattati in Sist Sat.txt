@@ -1,0 +1,12 @@
+Argomenti trattati in Sistemi radio e Satellitari
+
+---26/02/2018---
+	Commento articolo di Arthur C. Clarke
+	Storia dei satelliti
+---28/02/2018---
+	Sistema ideale di comunicazione
+	Ritardo di fase, gruppo
+	Distorsioni in fase e in ampiezza
+	Rumore termico
+	Banda equivalente di rumore
+	Impulsi RC o Nyquist
