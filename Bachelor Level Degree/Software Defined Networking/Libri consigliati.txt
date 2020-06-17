@@ -1,0 +1,3 @@
+Varghese Network Algorithmics Morgan Kaufhmann
+Goransson, black, culver Software Defined Networks, a comprehensive approach (2a edizione) Elsevier
+RYU SDN Framework

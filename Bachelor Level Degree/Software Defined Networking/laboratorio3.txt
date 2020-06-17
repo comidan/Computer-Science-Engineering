@@ -1,0 +1,35 @@
+prima di modiifcare dei campi è necessario aver modificato una serie obbligatoria di campi, questo per garantire la loro presenza senza l'invio di pacchetti
+anomali che cadrebbero in un inevitabile drop
+
+
+esempio : per modificare il sorgente ipv4 è necessario che il campo eth_type sia 0x0800 ovvero ETH_TYPE.IP
+
+
+esercizio lab :
+
+reindirizzare i pacchetti per h3 TCP/80 a h2 TCP/8080
+
+topologia :
+
+	
+	   tcp_dest = 80, ip_dest = h3, eth_dest = h3
+	   ----------
+	s1-------------s2-----------------s3
+	/		|		   \
+       /		|		    \
+       h1		h2		     h3
+
+
+CASI PARTICOLARI QUANDO NON SI MODIFICANO CORRETTAMENTE I CAMPI COME SOPRA DETTO :
+1)se viene fatto un syn ack vero h3 e si vede arrivare ad h1 un pacchetto che andrebbe verso h3 da h2, viene inviato un tcp reset per informare che non c'è nessuna connessione
+in questo momento aperta per ricevere pacchetti
+
+2)quando viene inviato un pacchetto anche con ip_dest = h2 se il mac non è il suo e viene immediatamente rifiutato
+Quindi h2 genera un pacchetto con il suo mac corrispondente con tcp_dest = 8080 inviato poi verso h1, facendo in modo di far comunicare h1 con h2 quando la sua originale
+richiesta era verso h3.
+
+
+
+ALRIMENTI : se tutto va bene, h1 quando comunnica su TCP/80 con h3 lui crede di farlo ma in verità è in comunicazione con h2 su TCP/8080
+
+

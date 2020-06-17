@@ -1,0 +1,20 @@
+implementazione in python + ryu attraverso dizionari in python, a 2 livelli ovvero un dizionario di dizionario per trovare la n-esima tabella del m-esimo switch
+
+passaggi :
+1) recupero mac sorgente ed inserimento in tabella tupla arp (mac address + porta), se presente mac si sovrascrive
+2)cercare mac destinazione in tabella, se si trova si inoltra là altrimenti flooding (broadcast a livello 2 per identificare la destinazione ed aggiungerlo in tabella
+
+ruolo del controllore :
+
+ricezione di mac_src e mac_dest per il learning degli inidirizzi da immettere in tabella
+
+
+implementazione di un learning switch in openflow : 
+1)fare exact match su due tabelle di mac_src e mac_dest
+2) se nessun match, si aggiunge regola di priorità 0 (minima) wildcard con ordine di andare dal controllore inviando il pacchetto anche al controllore e anche alla tabella 
+di mac_dest perchè è possibile che qui l'exact match sia positivo, se negativo aggiunge regola wildcard con priorità 0 che fa il flooding (broadcast a livello 2)
+3) se si va nel controllore : 
+	3.1) lettura mac sorgente e porta sorgente
+	3.2) scrivere regola nella tabella dest con mac_dest quello indicato nel pacchetto e port_dest stessa cosa con priorità 1 (per fare override della regola di default)
+	3.3) per il mac_dest nella tabella src si inserisce il mac_dest del pacchetto con destinazione la tabella dest visto che la regola è stata aggiunta là, con priorità 1
+	     per fare l'override della regola di default con wildcard
