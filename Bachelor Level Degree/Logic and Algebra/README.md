@@ -1,0 +1,1 @@
+Logic and Algebra course
