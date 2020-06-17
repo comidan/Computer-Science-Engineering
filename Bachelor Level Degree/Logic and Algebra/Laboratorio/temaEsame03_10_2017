@@ -1,0 +1,27 @@
+begin_problem(tautologia).
+
+list_of_descriptions.
+name({**}).
+author({**}).
+status(unsatisfiable).
+description({**}).
+end_of_list.
+
+list_of_symbols.
+  functions[(sum, 2), (e, 0), (f, 1), (g, 1)].
+end_of_list.
+
+list_of_formulae(axioms).
+    formula(forall([x], equal(sum(x, e), x))).
+    formula(forall([x], equal(sum(e, x), x))).
+    formula(forall([x,y,z], equal(sum(sum(x, y), z), sum(x, sum(y, z))))).
+    formula(forall([x, y], equal(f(sum(x, y), sum(f(x), f(y)))))).
+    formula(forall([x, y], equal(g(sum(x, y), sum(g(x), g(y)))))).
+    formula(forall([x, y], implies(equal(f(x), f(y)), equal(x, y)))).
+end_of_list.
+
+list_of_formulae(conjectures).
+    formula(and(forall([x, y], equal(f(g(sum(x, y))), sum(f(g(x)), f(g(y))))), forall([x, y], implies(equal(f(g(x)), f(g(y))), equal(x, y))))).
+end_of_list.
+
+end_problem.

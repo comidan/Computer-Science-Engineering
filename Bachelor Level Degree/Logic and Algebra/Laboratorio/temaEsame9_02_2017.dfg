@@ -1,0 +1,24 @@
+begin_problem(tautologia).
+
+list_of_descriptions.
+name({**}).
+author({**}).
+status(unsatisfiable).
+description({**}).
+end_of_list.
+
+list_of_symbols.
+  predicates[(appartiene, 2), (sostieneStessaProposta, 2)].
+end_of_list.
+
+list_of_formulae(axioms).
+    formula(forall[x, y, z], implies(and(appartiene(x, z), appartiene(y, z)), sostieneStessaProposta(x, y))).
+    formula(forall([z], exists([x, y], and(not(and(appartiene(x, z), appartiene(y, z))), sostieneStessaProposta(x, y))))).
+    formula(forall([x, y, z], exists([a, b, c], and(appartiene(a, x), appartiene(b, y), appartiene(c, z), not(equal(x, y)), not(equal(x, z)), not(equal(y, z)))))).
+end_of_list.
+
+list_of_formulae(conjectures).
+    --finisci come esercizio
+end_of_list.
+
+end_problem.

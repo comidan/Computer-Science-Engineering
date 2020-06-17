@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+
+\usepackage{indentfirst}
+
+\usepackage[english]{babel}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{verbatim}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{xypic}
+\usepackage{euscript}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+
+
+
+\def\theequation{\arabic{section}.\arabic{equation}}
+\def\thesection{\arabic{section}}
+
+
+
+\def\thesubsection{\rm{\arabic{section}.\arabic{subsection}.}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bd}{\begin{displaymath}}
+\newcommand{\ed}{\end{displaymath}}
+\pagestyle{empty}
+
+
+\def\è{\`{e}}
+\def\à{\`{a}}
+\def\ò{\`{o}}
+\def\ù{\`{u}}
+\def\ì{\`{i}}
+\def\é{\´{e}}
+
+\begin{document}
+
+
+\section*{Monoide}
+
+Utilizzando un opportuno linguaggio del primo ordine si scrivano gli assiomi di monoide e si traduca laseguente frase con una formula chiusa:\\
+\lq\lq Se un elemento \è invertibile a sinistra, allora \è cancella bile a sinistra. \rq\rq\\
+Si ricordi che un elemento $x$ si dice cancellabile a sinistra se ogni volta che vale l'uguaglianza $xy=xz$, allora si ha $y=z$.)\\ \ \\
+Si scriva nella sintassi di SPASS un programma che permetta di verificare se l'enunciato proposto \è vero nella teoria dei monoidi.
+
+\end{document}
+ 

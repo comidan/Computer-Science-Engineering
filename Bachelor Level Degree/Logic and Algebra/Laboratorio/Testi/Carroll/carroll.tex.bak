@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+
+\usepackage{indentfirst}
+
+\usepackage[english]{babel}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{verbatim}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{xypic}
+\usepackage{euscript}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+
+
+
+\def\theequation{\arabic{section}.\arabic{equation}}
+\def\thesection{\arabic{section}}
+
+
+
+\def\thesubsection{\rm{\arabic{section}.\arabic{subsection}.}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bd}{\begin{displaymath}}
+\newcommand{\ed}{\end{displaymath}}
+\pagestyle{empty}
+
+
+\def\è{\`{e}}
+\def\à{\`{a}}
+\def\ò{\`{o}}
+\def\ù{\`{u}}
+\def\ì{\`{i}}
+\def\é{\´{e}}
+
+\begin{document}
+
+
+\section*{Carroll}
+Provare le congetture formalizzandole in SPASS.
+\begin{quote}
+I neonati sono illogici\\
+Chi sa tenere a bada un coccodrillo non è mai disprezzato;\\
+Le persone illogiche sono disprezzate.\\ \ \\
+I neonati non sanno tenere a bada i coccodrilli.
+\end{quote}
+\ \\
+\begin{quote}
+\begin{enumerate}
+\item Tutti gli animali di questa casa sono gatti;
+\item Ogni animale che ami guardare la luna è adatto a essere un animale domestico;
+\item Quando detesto un animale lo evito;
+\item Nessun animale è carnivoro, a meno che non si aggiri furtivamente nella notte;
+\item Non c'è gatto che non uccida topi;
+\item Nessun animale si affeziona mai a me, fatta eccezione per quelli che sono in questa casa;
+\item I canguri non sono adatti ad essere degli animali domestici;
+\item Solo i carnivori uccidono i topi;
+\item Detesto gli animali che non si affezionano a me;
+\item Gli animali che si aggirano furtivamente nella notte amano sempre guardare la luna.
+\end{enumerate}
+Evito sempre i canguri.
+\end{quote}
+
+\end{document} 

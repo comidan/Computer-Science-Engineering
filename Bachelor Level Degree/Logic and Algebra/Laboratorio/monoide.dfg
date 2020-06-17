@@ -1,0 +1,24 @@
+begin_problem(tautologia).
+
+list_of_descriptions.
+name({**}).
+author({**}).
+status(unsatisfiable).
+description({**}).
+end_of_list.
+
+list_of_symbols.
+  functions[(multiply, 2), (e, 0)].
+end_of_list.
+
+list_of_formulae(axioms).
+    formula(forall([x], equal(multiply(x, e), x))).
+    formula(forall([x], equal(multiply(e, x), x))).
+    formula(forall([x,y,z], equal(multiply(multiply(x, y), z), multiply(x, multiply(y, z))))).
+end_of_list.
+
+list_of_formulae(conjectures).
+formula(forall([x], implies(exists([y], equal(multiply(y, x), e)), exists([y], implies(equal(multiply(e, x), multiply(e, y)), equal(x, y)))))).
+end_of_list.
+
+end_problem.

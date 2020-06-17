@@ -1,0 +1,72 @@
+%%--------------------------------------------------------------------------
+%% Problema: provare che negli anelli x * 0 = 0.
+%%
+%% Un anello e' una struttura <A,+,*> tale che
+%%	(1) <A,+> e' gruppo commutativo, cioe'
+%%		(a) + e' una operazione associativa e commutativa
+%%			sugli elementi di A.
+%%		(b) esiste zero, elemento neutro rispetto a + 
+%%		(c) esiste l'elemento inverso rispetto a + di ogni 
+%%			elemento di A
+%%	(2) <A,*> e' semigruppo, cioe'
+%%		(a) * e' operazione associativa
+%%	(3) Vale la distributivita' a sinistra e a destra del prodotto
+%%		rispetto alla somma
+%%
+%% Provare che in tale struttura, per ogni x appartenente a A, 
+%% x * 0 = 0
+%%--------------------------------------------------------------------------
+
+begin_problem(Problem).
+
+list_of_descriptions.
+name({*Esercizio*}).
+author({*NULL*}).
+status(unsatisfiable).
+description({*Provare che negli anelli x * 0 = 0*}).
+date({*NULL*}).
+end_of_list.
+
+list_of_symbols.
+functions[(sum,2),(multiply,2),(0,0)].
+end_of_list.
+
+list_of_formulae(axioms).
+
+formula(forall([X,Y,Z],equal(sum(sum(X,Y),Z),sum(X,sum(Y,Z))))).
+formula(forall([X,Y],equal(sum(X,Y),sum(Y,X)))).
+formula(forall([X],exists([Y],equal(sum(X,Y),0)))).
+formula(forall([X],equal(sum(X,0),X))).
+
+formula(forall([X,Y,Z],equal(multiply(multiply(X,Y),Z),multiply(X,multiply(Y,Z))))).
+
+formula(forall([X,Y,Z],equal(multiply(sum(X,Y),Z),sum(multiply(X,Z),multiply(Y,Z))))).
+formula(forall([X,Y,Z],equal(multiply(Z,sum(X,Y)),sum(multiply(Z,X),multiply(Z,Y))))).
+
+end_of_list.
+
+list_of_formulae(conjectures).
+
+formula(forall([X],equal(multiply(X,0),0))).
+
+end_of_list.
+
+list_of_settings(SPASS).
+{*
+set_flag(Sorts,0).
+set_flag(Splits,0).
+set_flag(Select,0).
+%set_flag(RFMRR,0).
+%set_flag(RBMRR,0). 
+set_flag(RObv,0).
+set_flag(RCon,0).
+set_flag(RUnC,0).
+set_flag(RAED,0).
+set_flag(CNFRenaming,0).
+set_flag(SatInput,0).
+set_flag(DocProof,1).
+*}
+end_of_list.
+
+end_problem.
+%%--------------------------------------------------------------------------

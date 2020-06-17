@@ -1,0 +1,23 @@
+per nome vuoto name({**})
+uguaglianza già integrata
+variabili mai dichiarate le capisce da solo perchè è qualcosa incluso tra le quadre come forall([U]) U è una variabile
+per dichiarare una funzione : function[(a,0),(f,3)] con numero numero funzione e arità
+nelle formule possono essere presenti 5 connettivi : not, and, or, implies, equiv (se e solo se)
+poi ci sono equal( = ), forall(per ogni), exists(esiste)
+esempio and : and(A, and(B,C)) è uguale scrivere and(A,B,C) e lo posso espandere per n : and(A1,..., An)
+or stessa cosa
+equiv, implies e equal è SOLO TRA DUE
+esempio : per ogni x per ogni y formula A è forall([X,Y], A).
+ogni istruzione si termina con un punto (.)
+skfN(X) skolem esistenziale X dipendente da funzione che viene skolemizzata
+skcN skolem di esistenziale senza alcuna dipendenza
+completion found = trovato controesempio e quindi teorema non dimostrato
+l'algoritmo non è decidibile, potrebbe non terminare mai in certi casi
+
+esercizio :
+se un elemento è invertibile a sinistra allora è cancellabile a sinistra
+x è cancellabile a sinistra se ogni volta che vale l'uguaglianza xy = xz allora si ha y = z
+
+la congettura è del tipo : per ogni x, se x è invertibile a sinistra allora è cancellabile a sinistra
+
+per ogni u,v (xu=xv allora u=v)

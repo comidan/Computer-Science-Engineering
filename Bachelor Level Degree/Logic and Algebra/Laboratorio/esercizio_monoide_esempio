@@ -1,0 +1,32 @@
+begin_problem(monoide).
+
+list_of_descriptions.
+name({**}).
+author({**}).
+status(unsatisfiable).
+description({**}).
+end_of_list.
+
+list_of_symbols.
+functions[(b,0), (P,2)]. %unità come funzione did arità 0, funzione di arità 2 per il prodotto 
+%funzioni : (nome, arità)
+%% b: unità
+%% P: prodotto
+end_of_list.
+
+list_of_formulae(axioms).
+ 
+%% assiomi di monoide, sono le proprietà della definzione di monoide : se avessi avuto un gruppo avrei dovuto per esempio aggiungere anche l'inverso
+formula(forall([x],equal(P(x,b),x))).          %dichiaro che prodotto con unità a destra da sempre x
+formula(forall([x],equal(P(b,x),x))).          %dichiaro che prodotto con unità a sinistra da sempre x
+formula(forall([x],forall ([y],forall([z],equal(P(P(x,y),z),P(x,P(y,z))))))).   %dichiaro la proprietà associativa
+
+end_of_list.
+
+list_of_formulae(conjectures).
+
+formula(forall([x],implies(exists([y],equal(P(y,x),b)),forall([u],forall([v],implies(equal(P(x,u),P(x,v)),equal(u,v))))))).   %dichiaro semplicemente la formula
+
+end_of_list.
+
+end_problem.

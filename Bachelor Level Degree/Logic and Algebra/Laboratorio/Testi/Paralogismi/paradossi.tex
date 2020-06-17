@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+
+\usepackage{indentfirst}
+
+\usepackage[english]{babel}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{verbatim}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{xypic}
+\usepackage{euscript}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+
+
+
+\def\theequation{\arabic{section}.\arabic{equation}}
+\def\thesection{\arabic{section}}
+
+
+
+\def\thesubsection{\rm{\arabic{section}.\arabic{subsection}.}}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bd}{\begin{displaymath}}
+\newcommand{\ed}{\end{displaymath}}
+\pagestyle{empty}
+
+
+\def\è{\`{e}}
+\def\à{\`{a}}
+\def\ò{\`{o}}
+\def\ù{\`{u}}
+\def\ì{\`{i}}
+\def\é{\´{e}}
+
+\begin{document}
+
+
+\section*{Paradossi}
+Provare la scorrettezza dei seguenti ragionamenti.
+\begin{enumerate}
+  \item Lo zio Joe, lo zio Jim e il loro nipote stanno andando dal barbiere. Nella bottega lavorano tre barbieri: Allen, Brown e Carr. Carr è un'ottimo barbiere, Brown invece è maldestro e Allen, dopo aver avuto una febbre, non ha più la mano ferma. Di conseguenza, lo zio Jim vorrebbe farsi radere da Carr e lo zio Joe gli assicura che così sarà, visto che è pronto a scommettere mezzo scellino che Carr è certamente nella bottega. Lo zio Jim è scettico e chiede come faccia a esserne così sicuro. Lo zio Joe risponde che è in grado di dimostrarlo con la logica, utilizzando soltanto le seguenti due informazioni:
+        \begin{enumerate}
+          \item La bottega è aperta, quindi almeno uno dei tre barbieri è dentro.
+          \item Allen sa che il suo collega Brown è un pessimo barbiere per cui non lascia mai il negozio senza portarlo via con sé.
+        \end{enumerate}
+      Quindi se Carr fosse fuori, allora se anche Allen fosse fuori, Brown sarebbe dentro, visto che la bottega è aperta e deve essere presente almeno un barbiere; tuttavia, sappiamo che Allen, quando esce, porta con sé Brown. Siccome le asserzioni \lq\lq Se Allen è fuori, allora Brown è dentro\rq\rq\ e \lq\lq Se Allen è fuori, allora Brown è fuori\rq\rq\ sono incompatibili, l'ipotesi che Carr sia fuori conduce a una contraddizione e quindi non può essere vera. Ergo, Carr è sempre nella bottega.
+      (Lewis Carroll, "A Logical Paradox: by Lewis Carroll", 1894.)
+  \item Dice A: \lq\lq se tra le carte di Max c'è un re, allora c'è anche un asso\rq\rq, dice B: \lq\lq se Max non ha un re, allora non ha un asso\rq\rq. Solo uno dei due dice la verità, ma noi sappiamo che Max ha un re. Ne deduciamo quindi che Max ha un asso. (Illusione cognitiva dei modelli mentali di Johnson-Laird.)
+\end{enumerate}
+
+
+\end{document}

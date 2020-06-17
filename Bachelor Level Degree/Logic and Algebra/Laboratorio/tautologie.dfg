@@ -1,0 +1,38 @@
+begin_problem(tautologia).
+
+list_of_descriptions.
+name({**}).
+author({**}).
+status(unsatisfiable).
+description({**}).
+end_of_list.
+
+list_of_symbols.
+  predicates[(P, 0), (Q, 0), (R, 0), (F, 1)].
+end_of_list.
+
+list_of_formulae(axioms).
+
+end_of_list.
+
+list_of_formulae(conjectures).
+
+formula(equiv(implies(P, Q), implies(not(Q), not(P)))).
+formula(equiv(not(not(P)), P)).
+formula(equiv(not(implies(P, Q)), implies(not(Q), P))).
+formula(implies(implies(or(P, Q), or(P, R)), or(P, implies(Q, R)))).
+formula(or(P, not(P))).
+formula(or(P, not(not(not(P))))).
+formula(implies(implies(implies(P, Q), P), P)).
+formula(equiv(P, P)).
+formula(equiv(implies(P, Q), or(not(P), Q))).
+formula(implies(and(or(P, Q), or(not(P), Q), or(P, not(Q))), not(or(not(P), not(Q))))).
+formula(equiv(equiv(R, equiv(P, Q)), equiv(P, equiv(Q, R)))).
+formula(equiv(or(P, and(Q, R)), and(or(P, Q), or(P, R)))).
+formula(or(implies(P, Q), implies(Q, P))).
+formula(implies(not(implies(P, Q)), implies(Q, P))).
+formula(exists([x], forall([y], implies(F(x), F(y))))).
+
+end_of_list.
+
+end_problem.
