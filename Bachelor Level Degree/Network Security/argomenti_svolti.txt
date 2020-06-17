@@ -1,0 +1,4 @@
+8 febbraio 2013 - inverso (eulero + square & multiply)
+11 luglio 2013 - eulero calcolo modulo con potenza elevata
+13 settembre 2013 - euclide esteso calcolo inverso
+4 luglio 2014 - teorema cinese del resto (sistema di equazioni congruenziali)

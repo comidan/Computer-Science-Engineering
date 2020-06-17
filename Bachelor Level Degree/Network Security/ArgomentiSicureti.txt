@@ -1,0 +1,101 @@
+﻿ARGOMENTI
+
+[] Introduzione al corso. Panoramica su crittografia e comunicazioni sicure.
+[] Divisibilità. Numeri primi. Massimo Comun Divisore. Algoritmo di Euclide.
+
+[ ] Algoritmo di Euclide Esteso.
+[] Congruenze mod n, divisione mod n.
+[ ] Teorema Cinese del Resto.
+[] Elevamento a potenza mod n.
+[] Square and Multiply.
+[ ] Teorema di Fermat.
+[ ] Teorema di Eulero.
+
+[] Ancora Teorema di Fermat e Teorema di Eulero.
+[] Calcolo inverso di a (mod n) con formula di Eulero e Algoritmo di Euclide Esteso.
+
+[] Radici primitive.
+[] Radici quadrate mod n.
+[] Residui quadratici.
+
+[] Introduzione ai crittosistemi a chiave simmetrica.
+[] Cifrario a scorrimento (Cesare).
+[] Cifrario Affine. Cifrario a sostituzione. Cifrario a permutazione.
+[] Cifrario di Vigenère.
+[] Introduzione ai cifrari a blocco.
+[] Diffusione e confusione nei cifrari a blocco.
+
+[ ] Modalità di funzionamento dei cifrari a blocco a catena.
+[ ] Algoritmo DES.
+[ ] Doppio DES.
+[ ] Attacco Meet-in-the-Middle a doppio DES.
+[ ] Triplo DES.
+[ ] Memorizzazione cifrata delle password con salt.
+
+[ ] Campi di Galois.
+[ ] Algoritmo di cifratura AES Rijndael.
+[ ] Algoritmo di decifrazione AES Rijndael.
+[ ] Sicurezza di AES. 
+
+[] Generazione di bit pseudo-casuali.
+[] Generatore di sequenze di bit pseudocasuali di Blum-Blum-Shub.
+[] Periodo della sequenza Blum-Blum-Shub.
+[] Funzione di Charmichael.
+[ ] Successioni LFSR: definizione.
+[ ] Successioni LFSR: schemi a blocchi, polinomio caratteristico e periodo.
+
+[ ] Scrambler autosincronizzante basilare.
+[ ] Scrambler additivo.
+
+[ ] Algoritmo RSA.
+[ ] Attacchi a RSA.
+[ ] Test di primalità di Fermat.
+[ ] Numeri pseudoprimi.
+[ ] Numeri di Carmichael.
+[ ] Numeri pseudoprimi forti.
+
+[ ] Algoritmi di fattorizzazione: algoritmo di Fermat, algoritmo p-1 di Pollard.
+[ ] Logaritmo discreto, calcolo del LogD con ricerca esaustiva.
+[ ] Baby Step Giant Step.
+[ ] Protocollo di pattuizione della chiave di Diffie-Hellmann.
+[ ] Crittosistema a chiave pubblica di El Gamal.
+
+[ ] Funzioni Hash. Cenni all'algoritmo SHA.
+[ ] Paradosso del Compleanno.
+[ ] Attacco del compleanno al problema del logaritmo discreto.
+[ ] Cifratura con hash. Hash e firma.
+[ ] Attacco del compleanno alle firme su hash.
+[ ] Firma digitale.
+[ ] Firma RSA.
+[ ] Firma cieca RSA.
+
+[ ] Schema di firma di El Gamal.
+[ ] Attacco del nonce ripetuto alla firma di El Gamal.
+
+[ ] Protocolli di instaurazione delle chiave: Diffie-Hellman e Station-to-Station.
+[ ] Protocolli di distribuzione della chiave: Shamir-Massey-Omura 3-Pass Protocol.
+[ ] Protocolli di distribuzione della chiave: Blom, Wide-Mouthed-Frog e Needham-Schroeder.
+
+[ ] Autenticazione, password.
+[ ] Sfida e risposta. One Time Password.
+[ ] Biometrica. Kerberos.
+
+[ ] Certificati e Public Key Infrastructure.
+[ ] Sicurezza a livello di trasporto e applicazione: Transport Level Security (TLS), HTTPS (HTTP over SSL/TLS),
+[ ] Secure email, sicurezza a livello di rete (IPsec).
+
+----------------------------------------------------------------------------------------
+
+ESERCIZI
+
+[ ] Equazioni lineari e Algoritmo di Euclide Esteso, Teorema cinese del resto.
+[ ] Elementi primitivi; radici quadrate e residui quadratici.
+[ ] Blum-Blum-Shub.
+[ ] Scrambler.
+[ ] Firma di El Gamal, attacco del nonce ripetuto a firma di El Gamal.
+[ ] Cifratura a chiave pubblica RSA, firma RSA, firma cieca RSA.
+[ ] Cifratura a chiave pubblica di El Gamal + attacco del nonce ripetuto, firma di El Gamal.
+[ ] Attacco del nonce ripetuto a firma di El Gamal, calcolo logaritmo discreto con Baby Step Giant Step.
+[ ] Algoritmo di distribuzione della chiave di Blom.
+[ ] Algoritmo instaurazione della chiave di Diffie-Helmann.
+[ ] Certificati.
