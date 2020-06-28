@@ -40,3 +40,6 @@
   - Visit and management algorithms
   - Red-black trees
 - Graphs, their representation and management
+
+### Course project
+- The development in C of a File System will be assigned and further demands on temporal and space complexity will be provided
