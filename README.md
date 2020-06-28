@@ -1,6 +1,6 @@
 # Computer Science Engineering
 
-Collection of the various courses, and their materials, taken at Politecnico di Milano during both Bachelor level degree and Master level degree in Engineering, Computer Science Engineering.
+Collection of the various courses, and their materials, attended at Politecnico di Milano during both Bachelor level degree and Master level degree in Engineering, Computer Science Engineering.
 
 I really enjoyed this path I chose, during high school I sometimes doubted or even get sad about doing computer science only for the purpose of building software, applications and so on.
 I wanted to apply it to something important, tangible, being not a "full stack developer" but rather a "full stack engineer" which means for me knowing everything from the mathematics then to the physichs behind something, then eletctronics, circuits, hardware architectures, signal processing and trasmission, low level software and then at the end the more and more abstraction reaching more related computer sciences only topics which obviously I love to if it wasn't clear.
