@@ -23,3 +23,6 @@
 ### Introduction to the automated design of digital architectures
 - The flow of hardware architecture design
 - The VHDL language for describing hardware architectures
+
+### Course project
+- Development of circuit board for a specific functionality will be assigned to be created using Xilinx Vivado and a specific FPGA
