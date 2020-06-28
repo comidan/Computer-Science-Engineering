@@ -9,4 +9,6 @@ That's why I chose engineering: you can do quite anything, you achieve a very la
 
 Feel free to make any requests, comments or anything else.
 
-![Politecnico di Milano](https://upload.wikimedia.org/wikipedia/it/archive/b/be/20151105101950%21Logo_Politecnico_Milano.png)
+<div>
+<a href="https://www.polimi.it/en/"><img src="https://upload.wikimedia.org/wikipedia/it/archive/b/be/20151105101950%21Logo_Politecnico_Milano.png" width="373" height="282"/></a>
+</div>
