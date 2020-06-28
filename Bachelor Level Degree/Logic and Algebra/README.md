@@ -24,3 +24,6 @@
 - Substructures, related criteria.
 - Congruence relationships, quotient structures. The congruence relation modulo n and hints of modular arithmetic
 - Similar structures, homomorphisms and isomorphisms between similar structures, the kernel of a homomorphism and the factorization theorem of homomorphisms.
+
+### LABORATORY
+- Usage of SPASS
