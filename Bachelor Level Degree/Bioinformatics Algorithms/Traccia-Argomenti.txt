@@ -1,0 +1,25 @@
+
+Programmazione dinamica
+Matici di Scoring (BLOUSUM62)
+Backtracking
+
+Allinemaento globale
+Allineamneto globale approssimato
+
+Tries (Radix tree)
+Suffix Tree
+
+Allineamento locale
+Allineamento locale approssimato
+
+Suffix array (Ukkonen)
+Trasformata di Burrows-Wheeler
+Indici FM
+
+Pliogenesi (Allineamento multiplo)
+
+Motif
+
+Clustal, FASTA, BLAST
+
+Modelli nascosti di markov (HMM)

@@ -1,0 +1,12 @@
+
+Università di verona:
+http://profs.scienze.univr.it/~liptak/FundBA/
+
+Wing-Kin Sung's book:
+https://www.comp.nus.edu.sg/~ksung/algo_in_bioinfo/
+
+Stanford:
+https://web.stanford.edu/class/cs262/cgi-bin/index.php
+
+GeeksForGeeks Quasi tutte le struttre ed algoritmi ci sono implmentati e spiegati:
+https://www.geeksforgeeks.org/ukkonens-suffix-tree-construction-part-1/

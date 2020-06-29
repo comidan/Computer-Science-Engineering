@@ -1,0 +1,79 @@
+La Bioinformatica rappresenta un sempre più importante e interessante settore di applicazione dell’informatica. Questa disciplina è nata dalla crescente necessità nell'ambito della Biologia Molecolare e della Genetica di sviluppare adeguati strumenti computazionali per la soluzione di molteplici problemi, tra cui quelli derivanti dall'analisi di sequenze biologiche (DNA, RNA, proteine). In particolare, le recenti tecnologie di sequenziamento di nuova generazione permettono di generare dati precisi, ma anche molto numerosi, di sequenze biologiche, che pongono problemi complessi e richiedono specifici algoritmi per la loro efficace ed efficiente elaborazione e analisi computazionale.
+
+Il corso si propone di introdurre gli studenti a tali problemi e alla loro soluzione computazionale, con l'obiettivo principale di fornire le conoscenze algoritmiche per affrontare con successo lo studio e la soluzione efficiente di una varietà di problemi su sequenze, grafi e alberi in Bioinformatica. Si svilupperà la capacità di disegnare algoritmi esatti o approssimati per la soluzione di problemi di ottimizzazione su sequenze, alberi e grafi che sono utilizzati per risolvere problemi in Bioinformatica, e la capacità di utilizzo di programmi disponibili in Internet per lo studio delle sequenze biologiche.
+
+Programma dettagliato
+
+ 
+
+1. Motivazioni dello studio informatico della biologia molecolare:
+
+-        La ricerca scientifica: la scienza come indagine.
+
+-        La codifica e il flusso dell’informazione nella materia vivente: DNA, RNA, codice genetico e proteine.
+
+-        L'importanza dell'analisi di sequenze biologiche.
+
+2. Allineamento di due sequenze biologiche, per ricerca di similarità/omologia:
+
+-        Allineamento pairwise, con indels e gaps.
+
+-        Distanza e similarità di due sequenze, la distanza di edit.
+
+-        Schemi di scoring per allineamento di biosequenze e loro definizioni formali.
+
+-        Matrici di sostituzione PAM e BLOSUM: significato funzionale e algoritmi di costruzione.
+
+-        Gaps e gap penalty.
+
+-        Complessità computazione dell’allineamento di due sequenze.
+
+-        La programmazione dinamica per la costruzione dell'allineamento ottimo di due biosequenze:
+
+ 
+
+Algoritmo di Needleman-Wunsch per allineamenti globali esatti.
+Algoritmo di Smith e Waterman per allineamenti locali esatti.
+ 
+
+3. Banche dati di sequenze biologiche e algoritmi euristici per la ricerca di una sequenza di query:
+
+-        Dinamica di crescita delle banche dati di sequenze biologiche.
+
+-        Complessità computazione e necessità di algoritmi veloci per ricerca di sequenze biologiche in grandi banche dati.
+
+Algoritmi euristici FASTA e BLAST e loro confronto.
+La famiglia degli algoritmi BLAST: Blastn, Blastp, blastX , tblastN e tblastX.
+4. Cenni di allineamento multiplo di sequenze biologiche, per ricerca di sottosequenze conservate.
+
+-        Matrici profilo: entropia di Shannon, contenuto informativo e logo.
+
+-        Funzioni di scoring: Sum-of-Pair, Entropia, Circular-Sum.
+
+-        Complessità computazione e programmazione dinamica: intrattabilità della ricerca di allineamento multiplo ottimale.
+
+-        Algoritmi euristici per l’allineamento multiplo: allineamento progressivo con e senza albero guida, allineamento center-star, allineamento iterativo, algoritmo Clustal-W.
+
+
+5. Algoritmi per il sequenziamento di nuova generazione.
+
+Sequenziamento e formato FASTQ.
+Score di qualità.
+Controlli di qualità.
+-        Teoria dei grafi per l’assemblaggio di sequenze:
+
+Cammino Hamiltoniano.
+Algoritmi greedy basati su grafi.
+Approcci basati sul grafo di de Bruijn o su grafo di stringhe e loro confronto.
+Implementazioni software disponibili.
+-        Mappatura di frammenti sequenziati su un genoma di riferimento:
+
+Algoritmi di Hashing, loro limitazioni e miglioramenti.
+Algoritmi di indicizzazione basati sulla trasformata di Burrows-Wheeler.
+Alberi e array dei suffissi/prefissi.
+Ricerca di sottosequenze usando la trasformata di Burrows-Wheeler.
+-        Formati SAM/BAM per la memorizzazione degli allineamenti.
+
+-        Strumenti per la manipolazione di dati di allineamento.
+
+-        Metodi computazionali per l’identificazione di caratteristiche genomiche nelle sequenze mappate 
