@@ -6,10 +6,10 @@
 
 - Mind models and linguistic / expressive / interactive competencies:
 
-- Development of expressive competencies, by means of verbal (both written and spoken), iconic, and gestural languages.
-- Linguistic competencies and the act of thinking.
-- Language, pragmatics, and interaction.
-- Natural language representation: levels and their complexity: computational linguistics as a representation of human linguistic competencies, as a model, and as a solution to specific and well defined problems.
+    - Development of expressive competencies, by means of verbal (both written and spoken), iconic, and gestural languages.
+    - Linguistic competencies and the act of thinking.
+    - Language, pragmatics, and interaction.
+    - Natural language representation: levels and their complexity: computational linguistics as a representation of human linguistic competencies, as a model, and as a solution to specific and well defined problems.
 
 - Roles of symbolic and stochastic models in: morphologic, syntactic, semantic, and pragmatic analysis; sentiment analysis; spoken language, phonologic, and prosodic analysis; linguistic prediction; complexity evaluation; pattern recognition.
 
@@ -21,10 +21,10 @@
 
 - Syntactic and structural analysis:
 
-- Symbolic approaches
-- Stochastic approaches
-- Deep Learing approaches
-- Hybrid approaches
+    - Symbolic approaches
+    - Stochastic approaches
+    - Hybrid approaches
+
 - Semantic and discourse analysis: using integrated approaches; analysis of different representation levels.
 
 - Models and techniques for spoken natural language processing.
@@ -32,10 +32,6 @@
 - Components and characteristics of vocal expression and interaction: feature extraction, classification of vocal characteristics, voice profile definition, vocal expression and interaction model.
 
 - Models for the description of: tone and prosody, time scheduling, forms, interactions, and complex dialogues, expressivity.
-
-- High quality text-to-speech (TTS) and speech recognition (ASR). Analysis strategies and models for emotional and affective components in both TTS and ASR.
-
-- Models and tools supporting an integrated analysis of verbal expressions, and supporting the enhancement of linguistic competencies in contexts of communication, forensic, educative and clinical relationship, and artistic performance.
 
 - Human-machine and human-human interaction.
 
@@ -51,9 +47,11 @@
 
 - Supporting sentiment analysis in critical interaction.
 
-- NLP for language rehabilitation.
+- High quality text-to-speech (TTS) and speech recognition (ASR). Analysis strategies and models for advanced components in both TTS and ASR.
 
 - Defining linguistic user profiles for verbal (both written and spoken) languages.
+
+- Deep Learing approaches for ASR, TTS, embeddings representations, features extraction and all NLP tasks.
 
 ### PRACTICES
 
